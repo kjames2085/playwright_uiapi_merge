@@ -1,19 +1,27 @@
 import { expect, test } from "@playwright/test";
 import createbooking from "../src/apicalls/createbooking";
-import createtoken from "../src/apicalls/createtoken";
+import createtoken, { Token } from "../src/apicalls/createtoken";
 import updatebooking from "../src/apicalls/updatebooking";
+import { updatebookingheaders } from "../src/apitestdata/headers";
+import Createtoken from "../src/apicalls/createtoken";
+import data from "../src/apitestdata/token.json";
 
-test.describe.configure({ mode: 'serial' });
 
-let token, bookingid;
-test('Create Token', async ({ request }) => {
-  token = await createtoken(request,'/auth');
-})
+let bookingid;
+
+// updatebookingheaders.Cookie = updatebookingheaders.Cookie + data.token;
+// console.log(updatebookingheaders.Cookie);
+// test('Create Token', async ({ request }) => {
+//   token = await createtoken(request,'/auth');
+// })
 
 test('Create Booking', async ({ request }) => {
-  bookingid = await createbooking(request,'/booking')
+  bookingid = await createbooking(request, '/booking')
 })
 
 test('Update Booking', async ({ request }) => {
-  await updatebooking (request,'/booking/',bookingid,token)
- });
+  updatebookingheaders.Cookie = updatebookingheaders.Cookie + data.token;
+  console.log(updatebookingheaders.Cookie);
+  await updatebooking(request, '/booking/', bookingid)
+});
+
