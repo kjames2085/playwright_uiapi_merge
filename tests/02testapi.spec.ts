@@ -9,17 +9,13 @@ import data from "../src/api/apitestdata/token.json";
 
 let bookingid;
 
-// updatebookingheaders.Cookie = updatebookingheaders.Cookie + data.token;
-// console.log(updatebookingheaders.Cookie);
-// test('Create Token', async ({ request }) => {
-//   token = await createtoken(request,'/auth');
-// })
+test.describe.configure({mode: 'serial'})
 
-test('Create Booking', async ({ request }) => {
+test('Create Booking',{tag: '@api'}, async ({ request }) => {
   bookingid = await createbooking(request, '/booking')
 })
 
-test('Update Booking', async ({ request }) => {
+test('Update Booking',{tag: '@api'}, async ({ request }) => {
   updatebookingheaders.Cookie = updatebookingheaders.Cookie + data.token;
   console.log(updatebookingheaders.Cookie);
   await updatebooking(request, '/booking/', bookingid)

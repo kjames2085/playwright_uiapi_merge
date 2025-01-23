@@ -22,7 +22,7 @@ static async createtoken(request: APIRequestContext, resources: string) {
      const data = {
         "token": this.token
      }
-    fs.writeFile('./src/apitestdata/token.json', JSON.stringify(data),()=>{})
+    fs.writeFile('./src/api/apitestdata/token.json', JSON.stringify(data),()=>{})
 
 }
 }

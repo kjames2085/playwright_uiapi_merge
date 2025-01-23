@@ -10,5 +10,5 @@ export default async function updatebooking(request: APIRequestContext, resource
         headers: updatebookingheaders,
         data: updatebookingdata
     })
-   // expect((await response.json()).firstname).toBe('Vasu')
+   expect((await response.json()).firstname).toBe('Vasu')
 }

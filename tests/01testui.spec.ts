@@ -11,13 +11,41 @@ import ENV from "../src/ui/testdata/env";
 
 let launch, homepage, logout;
 
-test('Homepage 1', async ({launch,homepage}) => {
+test('Homepage 1',{tag: '@Sanity'}, async ({launch,homepage}) => {
   await homepage.Homepage1();
 })
 
-test('homepage 2', async ({launch,homepage}) => {
+test('homepage 2',{tag: ['@Sanity','@Regression']}, async ({launch,homepage}) => {
   await homepage.Homepage2();
 })
+
+
+test('Homepage 3', async ({launch,homepage}) => {
+  await homepage.Homepage1();
+})
+
+test('homepage 4', async ({launch,homepage}) => {
+  await homepage.Homepage2();
+})
+
+
+test('Homepage 5', async ({launch,homepage}) => {
+  await homepage.Homepage1();
+})
+
+test('homepage 6', async ({launch,homepage}) => {
+  await homepage.Homepage2();
+})
+
+
+test('Homepage 7', async ({launch,homepage}) => {
+  await homepage.Homepage1();
+})
+
+test('homepage 8', async ({launch,homepage}) => {
+  await homepage.Homepage2();
+})
+
 
 
 

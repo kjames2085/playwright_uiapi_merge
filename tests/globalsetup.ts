@@ -15,6 +15,6 @@ test('Login', async ({ launch, login }) => {
     await login.login(ENV.USERNAME, ENV.PASSWORD)
 })
 
-test('Create Token', async ({ request }) => {
+test('Create Token',{tag: '@api'}, async ({ request }) => {
   await Createtoken.createtoken(request, '/auth');
 })
