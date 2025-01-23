@@ -1,11 +1,11 @@
-import { test } from "../src/fixture/myfixture";
-import Launch from "../src/pages/Launch";
-import ENV from "../src/testdata/env";
-import Login from "../src/pages/Login";
-import createtoken from "../src/apicalls/createtoken";
-import { updatebookingdata } from "../src/apitestdata/body";
-import { updatebookingheaders } from "../src/apitestdata/headers";
-import Createtoken from "../src/apicalls/createtoken";
+import { test } from "../src/ui/fixture/myfixture";
+import Launch from "../src/ui/pages/Launch";
+import ENV from "../src/ui/testdata/env";
+import Login from "../src/ui/pages/Login";
+import createtoken from "../src/api/apicalls/createtoken";
+import { updatebookingdata } from "../src/api/apitestdata/body";
+import { updatebookingheaders } from "../src/api/apitestdata/headers";
+import Createtoken from "../src/api/apicalls/createtoken";
 
 let launch, login, token;
 

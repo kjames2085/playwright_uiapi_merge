@@ -4,17 +4,17 @@ import { config } from 'dotenv';
 
 if (process.env.ENVIRONMENT == 'stage') {
   config({
-    path: './src/testdata/.env.stage',
+    path: './src/ui/testdata/.env.stage',
     override: true
   })
 } else if (process.env.ENVIRONMENT == 'cert') {
   config({
-    path: './src/testdata/.env.cert',
+    path: './src/ui/testdata/.env.cert',
     override: true
   })
 } else if (process.env.ENVIRONMENT == 'prod') {
   config({
-    path: './src/testdata/.env.prod',
+    path: './src/ui/testdata/.env.prod',
     override: true
   })
 }

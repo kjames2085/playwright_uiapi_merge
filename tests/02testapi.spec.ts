@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
-import createbooking from "../src/apicalls/createbooking";
-import createtoken, { Token } from "../src/apicalls/createtoken";
-import updatebooking from "../src/apicalls/updatebooking";
-import { updatebookingheaders } from "../src/apitestdata/headers";
-import Createtoken from "../src/apicalls/createtoken";
-import data from "../src/apitestdata/token.json";
+import createbooking from "../src/api/apicalls/createbooking";
+import createtoken, { Token } from "../src/api/apicalls/createtoken";
+import updatebooking from "../src/api/apicalls/updatebooking";
+import { updatebookingheaders } from "../src/api/apitestdata/headers";
+import Createtoken from "../src/api/apicalls/createtoken";
+import data from "../src/api/apitestdata/token.json";
 
 
 let bookingid;

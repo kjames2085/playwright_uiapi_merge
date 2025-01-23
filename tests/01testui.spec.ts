@@ -1,12 +1,12 @@
 import { expect } from "@playwright/test";
-import {test} from "../src/fixture/myfixture";
-import Launch from "../src/pages/Launch";
-import Login from "../src/pages/Login";
-import Homepage from "../src/pages/Homepage";
-import Logout from "../src/pages/Logout";
-import jsontestdata from "../src/testdata/jsontestdata.json";
-import { testdata } from "../src/testdata/testdata";
-import ENV from "../src/testdata/env";
+import {test} from "../src/ui/fixture/myfixture";
+import Launch from "../src/ui/pages/Launch";
+import Login from "../src/ui/pages/Login";
+import Homepage from "../src/ui/pages/Homepage";
+import Logout from "../src/ui/pages/Logout";
+import jsontestdata from "../src/ui/testdata/jsontestdata.json";
+import { testdata } from "../src/ui/testdata/testdata";
+import ENV from "../src/ui/testdata/env";
 
 
 let launch, homepage, logout;
