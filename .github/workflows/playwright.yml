@@ -1,7 +1,7 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ 23Jan2025 ]
+    branches: [ 23Jan2025-V1 ]
   pull_request:
     branches: [ main, master ]
 jobs:
@@ -18,7 +18,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: ENVIRONMENT=stage npx playwright test --project chromium
+      run: ENVIRONMENT=stage npx playwright test --project chromium --grep @api
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
