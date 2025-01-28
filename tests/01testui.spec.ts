@@ -1,27 +1,20 @@
 import { expect } from "@playwright/test";
-import {test} from "../src/fixture/myfixture";
-import Launch from "../src/pages/Launch";
-import Login from "../src/pages/Login";
-import Homepage from "../src/pages/Homepage";
-import Logout from "../src/pages/Logout";
-import jsontestdata from "../src/testdata/jsontestdata.json";
-import { testdata } from "../src/testdata/testdata";
-import ENV from "../src/testdata/env";
+import { test } from "../src/ui/fixture/fixture";
+import Launch from "../src/ui/pages/launch";
+import Login from "../src/ui/pages/login";
+import Homepage from "../src/ui/pages/homepage";
+import Logout from "../src/ui/pages/logout";
+import jsondata from "../src/ui/testdata/testdata.json";
+import { testdata } from "../src/ui/testdata/testdata";
+import ENV from "../src/ui/testdata/environments/env";
 
-
-let launch, homepage, logout;
-
-test('Homepage 1', async ({launch,homepage}) => {
-  await homepage.Homepage1();
+test('Homepage 1',{tag: '@ui'}, async ({ page, launch, homepage }) => {
+    await homepage.homepage1();
 })
 
-test('homepage 2', async ({launch,homepage}) => {
-  await homepage.Homepage2();
+test('Homepage 2',{tag: '@ui'}, async ({ page, launch, homepage }) => {
+    await homepage.homepage2();
 })
-
-
-
-
 
 
 

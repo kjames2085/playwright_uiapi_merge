@@ -1,24 +1,22 @@
 import { defineConfig, devices } from '@playwright/test';
 import { config } from 'dotenv';
 
-
 if (process.env.ENVIRONMENT == 'stage') {
   config({
-    path: './src/testdata/.env.stage',
+    path: './src/ui/testdata/environments/.env.stage',
     override: true
   })
 } else if (process.env.ENVIRONMENT == 'cert') {
   config({
-    path: './src/testdata/.env.cert',
+    path: './src/ui/testdata/environments/.env.cert',
     override: true
   })
-} else if (process.env.ENVIRONMENT == 'prod') {
+} else if (process.env.ENVIRONMENT == 'prod'){
   config({
-    path: './src/testdata/.env.prod',
+    path: './src/ui/testdata/environments/.env.prod',
     override: true
   })
 }
-
 
 /**
  * Read environment variables from file.
@@ -40,13 +38,14 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? undefined : undefined,
+  workers: process.env.CI ? 100 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -54,24 +53,23 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'initial',
-      testMatch: 'globalsetup.ts',
-      teardown: 'last'
+      name:'global.setup',
+      testMatch: 'global.setup.ts',
+      teardown: 'teardown'
     },
     {
-      name: 'last',
+      name: 'teardown',
       testMatch: 'teardown.ts',
-      use: {
-        storageState: 'playwright/.auth/auth.json'
+      use:{
+        storageState:'playwright/.auth/auth.json'
       }
     },
     {
       name: 'chromium',
-      dependencies: ['initial'],
-      use: {
-        ...devices['Desktop Chrome'],
+      dependencies: ['global.setup'],
+      use: { ...devices['Desktop Chrome'],
         storageState: 'playwright/.auth/auth.json'
-      },
+       },
     },
 
     {
